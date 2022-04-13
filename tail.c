@@ -1,5 +1,5 @@
 // tail.c
-// Řešení IJC-DU2, příklad a), 19. 4. 2022
+// Řešení IJC-DU2, příklad 1), 19. 4. 2022
 // Autor: Matyáš Strelec, FIT
 // Přeloženo: clang 13.1.6
 
