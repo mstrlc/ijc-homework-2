@@ -121,7 +121,7 @@ int main(int argc, char *argv[])
 
     for(int i = 0; i < linesCount; i++)
     {
-        printf("%s\n", lines[(rollingArrayIndex + i) % linesCount]); // Use remainder to print lines in the correct order
+        printf("%s\n", lines[(rollingArrayIndex + i) % linesCount]); // Use modulo to print lines in the correct order
     }
 
     // Close the file
