@@ -4,27 +4,21 @@
 // Přeloženo: clang 13.1.6
 
 #ifndef __HTAB_PRIV_H__
-#define __HTAB_H_PRIV__
+#define __HTAB_PRIV_H__
 
 #include "htab.h"
 
-struct htab {
-    size_t size;
-    size_t arr_size;
-    htab_item_t **arr_ptr;
-};
-
-typedef struct htab_pair {
-    htab_key_t key;
-    htab_value_t value;
-} htab_pair_t;
-
-typedef struct htab_item {
+typedef struct htab_item
+{
     struct htab_pair pair;
     struct htab_item *next;
 } htab_item_t;
 
-
-
+struct htab
+{
+    size_t size;
+    size_t arr_size;
+    htab_item_t **arr_ptr;
+};
 
 #endif // __HTAB_PRIV_H__

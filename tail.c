@@ -101,7 +101,7 @@ int main(int argc, char *argv[])
             while((c = fgetc(fp)) != '\n' && c != EOF);
 
         buffer[MAX_LENGTH-1] = '\0'; // Terminate the string
-        for (int i = 0; i < strlen(buffer); i++) // Replace trailing newline with null to avoid problems with printing
+        for (unsigned long i = 0; i < strlen(buffer); i++) // Replace trailing newline with null to avoid problems with printing
         {
             if(buffer[i] == '\n')
                 buffer[i] = '\0';
