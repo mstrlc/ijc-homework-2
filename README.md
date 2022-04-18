@@ -4,7 +4,8 @@ make:
 - [ ] Makefile
 - [ ] libhtab.a
 - [ ] libhtab.so
-
+- [ ] wordcount
+- [ ] wordcount-dynamic
 part 1:
 - [x] tail.c
 
@@ -12,13 +13,15 @@ part 2:
 - [x] htab.h
 - [x] htab_priv.h
 - [x] htab_bucket_count.c
-- [ ] htab_clear.c
+- [x] htab_clear.c
 - [ ] htab_erase.c
 - [x] htab_find.c
-- [ ] htab_for_each.c
-- [ ] htab_free.c
-- [ ] htab_hash_function.c
-- [ ] htab_init.c
+- [x] htab_for_each.c
+- [x] htab_free.c
+- [x] htab_hash_function.c
+- [x] htab_init.c
 - [ ] htab_lookup_add.c
 - [ ] htab_resize.c
 - [x] htab_size.c
+- [x] wordcount.c
+- [x] io.c

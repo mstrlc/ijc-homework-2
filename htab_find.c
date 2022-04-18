@@ -23,11 +23,9 @@ htab_pair_t * htab_find(htab_t * t, htab_key_t key)
         {
             return &item_p->pair;
         }
-        
         // If not found, go to the next item
         item_p = item_p->next;
     }
-
     // Key was not found in the table, return NULL
     return NULL;
 }

@@ -5,12 +5,18 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "htab.h"
 #include "htab_priv.h"
 
+// Search for the key in the table, return pointer to the pair if found, if not, add it to the tables
 htab_pair_t * htab_lookup_add(htab_t * t, htab_key_t key)
 {
+    // ! TODO:
+    // ! Když průměrná délka seznamů přesáhne vámi definovaný limit
+    // ! AVG_LEN_MAX provede operaci htab_resize na dvojnásobnou velikost.
+
     // Calculate the index in the table using hash function
     size_t index = htab_hash_function(key) % t->arr_size;
     htab_item_t *item_p = t->arr_ptr[index];
@@ -37,11 +43,15 @@ htab_pair_t * htab_lookup_add(htab_t * t, htab_key_t key)
         return NULL;
     }
 
-    item_p->pair.key = key;
+
     item_p->next = t->arr_ptr[index];
 
     // Add the new item to the table
     t->arr_ptr[index] = item_p;
+    t->arr_ptr[index]->pair.key = malloc(sizeof(char) * (strlen(key) + 1));
+    strcpy((char *)t->arr_ptr[index]->pair.key, key);
+
+    // Increase the number of items in the table
     t->size++;
 
     return &item_p->pair;
