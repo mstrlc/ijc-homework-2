@@ -84,12 +84,13 @@ int main(int argc, char *argv[])
 
     // Read the file and store last n strings
     char buffer[MAX_LENGTH+2]; // Buffer to read the line into
+    buffer[MAX_LENGTH] = '\n'; // Set last character to \n
     bool errorPrinted = false;  // Flag to indicate if error has been printed (only needs to be printed once)
 
     while((fgets(buffer, MAX_LENGTH+1, fp)) != NULL)    // Read the file line by line
     {
         // If line is longer than the set limit (indicated by lack of newline), print error and continue
-        if(!strchr(buffer, '\n') && errorPrinted == false)
+        if(strchr(buffer, '\n') == NULL && errorPrinted == false)
         {
             fprintf(stderr, "Line too long. Continuing with lines limited to %d characters.\n", MAX_LENGTH-1);
             errorPrinted = true;
@@ -112,7 +113,6 @@ int main(int argc, char *argv[])
         linesRead++;
         strcpy(lines[rollingArrayIndex], buffer);
         rollingArrayIndex = (rollingArrayIndex + 1) % linesCount; // If index is bigger than number of lines to be read, it goes back to 0
-    
     }
 
     // Print last n lines, if file was shorter than n lines, print all lines
