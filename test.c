@@ -1,44 +1,56 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #include "htab.h"
 #include "htab_priv.h"
+#include "io.h"
+
+void print_count(htab_pair_t *data)
+{
+    printf("%s\t%d\n", data->key, data->value);
+}
+
+void print_keys(htab_pair_t *data)
+{
+    printf("%s ", data->key);
+}
 
 int main()
 {
-    htab_t *table = htab_init(7);
+    htab_t *first = htab_init(5);
 
-    printf("table size: %zu\n", table->size);
-    printf("hash \"brambora\": %zu\n", htab_hash_function("brambora")%table->arr_size);
-    printf("hash \"autobus\": %zu\n", htab_hash_function("autobus")%table->arr_size);
-    printf("hash \"kurecirizek\": %zu\n", htab_hash_function("kurecirizek")%table->arr_size);
+    htab_lookup_add(first, "key1");
+    htab_lookup_add(first, "key2");
+    htab_lookup_add(first, "key3");
+    htab_lookup_add(first, "key4");
+    htab_lookup_add(first, "key5");
+    htab_lookup_add(first, "key6");
+    htab_lookup_add(first, "key7");
+    htab_lookup_add(first, "key8");
+    htab_lookup_add(first, "key9");
+    htab_lookup_add(first, "key10");
 
+    printf("lookup: %s\n", htab_lookup_add(first, "key1")->key);
+
+    printf("table of size %zu created, printing all items:\n", first->arr_size);
+    htab_for_each(first, print_keys);
     printf("\n");
+    htab_resize(first, 100);
+    printf("resized\n");
+    printf("table resize, new size %zu, printing all items:\n", first->arr_size);
+    htab_for_each(first, print_keys);
+    htab_erase(first, "key1");
+    htab_erase(first, "key2");
+    htab_erase(first, "key3");
+    htab_erase(first, "key4");
+    htab_erase(first, "key5");
+    htab_erase(first, "key6");
+    htab_erase(first, "key7");
+    htab_erase(first, "key8");
 
-    htab_lookup_add(table, "brambora");
-    htab_lookup_add(table, "autobus");
-    htab_lookup_add(table, "kurecirizek");
-    htab_lookup_add(table, "chlebasmaslem");
-    htab_lookup_add(table, "smazenysyr");
-    htab_lookup_add(table, "pivecko");
-    htab_lookup_add(table, "bramborovysalat");
-    htab_lookup_add(table, "omeletasesunkou");
-
-    printf("\"brambora\" value: %s\n", htab_find(table, "brambora")->key);
-    printf("\"autobus\" value: %s\n", htab_find(table, "autobus")->key);
-    printf("\"kurecirizek\" value: %s\n", htab_find(table, "kurecirizek")->key);
-
-    printf("\n");
-
-    printf("htab_size: %zu\n", htab_size(table)); 
-    printf("htab_bucket_count: %zu\n", htab_bucket_count(table));
-
-    printf("\n");
-
-    printf("htab_find brambora: %s\n", htab_find(table, "brambora")->key);
-    printf("htab_find autobus: %s\n", htab_find(table, "autobus")->key);
-    printf("htab_find kurecirizek: %s\n", htab_find(table, "kurecirizek")->key);
-    printf("htab_find chlebasmaslem: %s\n", htab_find(table, "chlebasmaslem")->key);
-    printf("htab_find smazenysyr: %s\n", htab_find(table, "smazenysyr")->key);
-    printf("htab_find neexistujici: %s\n", htab_find(table, "neexistujici"));
+    printf("trying to free\n");
+    htab_free(first);
+    printf("free complete\n");
+    printf("end\n");
 }
