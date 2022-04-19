@@ -1,15 +1,16 @@
-#ijc-project-2
+# ijc-homework-2 [![wakatime](https://wakatime.com/badge/github/mstrlc/ijc-homework-2.svg)](https://wakatime.com/badge/github/mstrlc/ijc-homework-2)
 
-make:
+### make:
 - [x] Makefile
 - [x] libhtab.a
 - [x] libhtab.so
 - [x] wordcount
 - [x] wordcount-dynamic
-part 1:
+
+### part 1:
 - [x] tail.c
 
-part 2:
+### part 2:
 - [x] htab.h
 - [x] htab_priv.h
 - [x] htab_bucket_count.c
@@ -27,5 +28,5 @@ part 2:
 - [x] io.c
 - [x] memory leak check (highly possible)
 
-time spent:
+## time spent:
 23 hrs 8 mins
