@@ -7,7 +7,7 @@ CFLAGS = -std=c11 -pedantic -Wall -Wextra
 
 .PHONY: all clean zip
 
-all: tail wordcount wordcount-dynamic wordcount-dynamic-mac libhtab.a libhtab.so libhtab.dylib
+all: tail wordcount wordcount-dynamic wordcount-dynamic-mac libhtab.a libhtab.so libhtab.dylib test
 
 # Task 1
 tail: tail.o
