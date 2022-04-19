@@ -42,9 +42,8 @@ htab_pair_t * htab_lookup_add(htab_t * t, htab_key_t key)
     }
 
 
-    item_p->next = t->arr_ptr[index];
-
     // Add the new item to the table
+    item_p->next = t->arr_ptr[index];
     t->arr_ptr[index] = item_p;
     t->arr_ptr[index]->pair.key = malloc(sizeof(char) * (strlen(key) + 1));
     strcpy((char *)t->arr_ptr[index]->pair.key, key);
