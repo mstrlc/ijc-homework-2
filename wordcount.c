@@ -34,4 +34,7 @@ int main()
 
     // Print output
     htab_for_each(table, print_count);
+
+    // Free hashtable
+    htab_free(table);
 }
