@@ -25,4 +25,7 @@ part 2:
 - [x] htab_size.c
 - [x] wordcount.c
 - [x] io.c
-- [ ] memory leak check (highly possible)
+- [x] memory leak check (highly possible)
+
+time spent:
+23 hrs 8 mins
