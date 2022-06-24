@@ -1,32 +1,10 @@
-# ijc-homework-2 [![wakatime](https://wakatime.com/badge/github/mstrlc/ijc-homework-2.svg)](https://wakatime.com/badge/github/mstrlc/ijc-homework-2)
+### FIT VUT – IJC – 2nd homework
+**10.5 / 15 points**
+- wordcount neni staticky sestaveny (chybi -static)
+- valgrind hlasi chyby u tail i wordcount
+- neuvolnena pamet u wordcount
+- wordcount nefunguje spravne, segfault
 
-### make:
-- [x] Makefile
-- [x] libhtab.a
-- [x] libhtab.so
-- [x] wordcount
-- [x] wordcount-dynamic
+[![wakatime](https://wakatime.com/badge/github/mstrlc/ijc-homework-2.svg)](https://wakatime.com/badge/github/mstrlc/ijc-homework-2)
 
-### part 1:
-- [x] tail.c
-
-### part 2:
-- [x] htab.h
-- [x] htab_priv.h
-- [x] htab_bucket_count.c
-- [x] htab_clear.c
-- [x] htab_erase.c
-- [x] htab_find.c
-- [x] htab_for_each.c
-- [x] htab_free.c
-- [x] htab_hash_function.c
-- [x] htab_init.c
-- [x] htab_lookup_add.c
-- [x] htab_resize.c
-- [x] htab_size.c
-- [x] wordcount.c
-- [x] io.c
-- [x] memory leak check (highly possible)
-
-## time spent:
-23 hrs 8 mins
+The task was to implement a hashtable in C with add, delete, resize, clear, search, etc. functions and dynamic memory allocation. The hashtable would change size accordingly, in order to get best performance when searching for items. Then, the hashtable is used to recreate a C++ program that counts occurences of words in a text file in C.
